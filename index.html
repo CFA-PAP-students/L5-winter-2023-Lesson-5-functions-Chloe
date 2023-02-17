@@ -24,21 +24,31 @@
         /* Exercise 1: parameters and arguments
         1. Select the #task-list ul tag and assign it a variable
         2. Create a function called cleanYourRoom with one parameter: activity
-        3. Inside the function, cumulitively add activities to the innerHTML of the ul tag,
+        3. Inside the function, add activities to the innerHTML of the ul tag,
         use a template literal so you can mark-up the activity with <li> tags.
         Call the function and pass it a string as an argument */
+
+        const taskList = document.querySelector('#task-list');
 
 
         /* Exercise 2 Key word arguments
         1. Add a keyword argument to the above function
-        2. Call it with and without a second argument.
+        2. Call it with and without a second argument.*/
+        
 
+        function cleanYourRoom(activity, time) {
+            taskList.innerHTML += `<li>${activity} in ${time} minutes</li>`;
+        }
+        cleanYourRoom("throw away trash", 5);
 
         /* Exercise 3: functions as values
         1. Rewrite the above function as the value of a variable, just add 2 to the end of the name.
         2. Call the function and pass it a string as an argument. */
 
-
+        let cleanYourRoom2 = function (activity, time) {
+            taskList.innerHTML += `<li>${activity} in ${time} minutes</li>`;
+        }
+        cleanYourRoom2("wipe counters", 5);
 
 
 
@@ -46,13 +56,37 @@
         1. Rewrite the above function value using arrow => syntax, just add 3 to the end of the name.
         2. Call the function and pass it a string as an argument */
 
+        let cleanYourRoom3 = (activity, time) => {
+            taskList.innerHTML += `<li>${activity} in ${time} minutes</li>`;
+        }
+        cleanYourRoom3("sweep floor", 20);
 
 
 
+        /*Exercise 5 */
 
-        
+
+        function sortClothes(dirty, clean) {
+            let sorted = dirty + clean;
+            return sorted + " clothes sorted";
+        }
+        let clothes = sortClothes(60, 5);
+        cleanYourRoom(clothes, 5);
 
 
+
+        /* Exercise 6 */ 
+        function magicWand() {
+            console.log(this);
+            this.remove();
+            document.body.style.backgroundImage ="url('after.jpg')";
+            document.querySelector("div").innerHTML = "<h1>Welcome to my home!</h1>"
+        }
+        const btn = document.querySelector("#magic");
+        btn.addEventListener("click", magicWand);
+
+
+       /* Exercise 7: Hoisting*/
 
 
     </script>
